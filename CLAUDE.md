@@ -11,7 +11,7 @@ Custom Android kernel "Zix Gaming Kernel by wahyu6070" for the Xiaomi POCO X3 NF
 Only four branches exist. Each one is a separate kernel variant and is developed on its own:
 
 - `gaming-kernelsu-next` — gaming variant with KernelSU Next + SUSFS (default branch; renamed from `gaming` on 2026-10-24)
-- `gaming-bakasu` — gaming variant for trying [BakaSU](https://github.com/Baka-SU/BakaSU) as the root solution; branched from `gaming-kernelsu-next` at `3f93cc0bb`
+- `gaming-bakasu` — gaming variant for trying [BakaSU](https://github.com/Baka-SU/BakaSU) as the root solution; branched from `gaming-kernelsu-next` at `e51a7bc7d`
 - `main` — main variant
 - `daily` — daily variant with a conservative config for battery life
 
