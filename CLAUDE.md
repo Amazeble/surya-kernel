@@ -8,17 +8,18 @@ Custom Android kernel "Zix Gaming Kernel by wahyu6070" for the Xiaomi POCO X3 NF
 
 ## Branches
 
-Only three branches exist. Each one is a separate kernel variant and is developed on its own:
+Only four branches exist. Each one is a separate kernel variant and is developed on its own:
 
-- `gaming` — gaming variant (default branch)
+- `gaming-kernelsu-next` — gaming variant with KernelSU Next + SUSFS (default branch; renamed from `gaming` on 2026-10-24)
+- `gaming-bakasu` — gaming variant for trying [BakaSU](https://github.com/Baka-SU/BakaSU) as the root solution; branched from `gaming-kernelsu-next` at `3f93cc0bb`
 - `main` — main variant
 - `daily` — daily variant with a conservative config for battery life
 
-The root manager app matching this kernel is **KernelSU Next v3.4.1 (33333)**. The manager checks the kernel's UAPI version, not the version number: the in-tree `v3.4.0-legacy-susfs` reports `KERNEL_SU_UAPI_VERSION` **5** (shown as `33306-5`), which matches v3.4.1. The v3.4.0 manager (UAPI 4) shows "manager version is too low". All official KernelSU Next APKs share the signing certificate in `drivers/kernelsu/Kbuild` (`KSU_NEXT_MANAGER_SIZE`/`HASH`). SUSFS is managed from userspace with the [sidex15/susfs4ksu-module](https://github.com/sidex15/susfs4ksu-module) KernelSU module.
+On `gaming-kernelsu-next`, the root manager app matching this kernel is **KernelSU Next v3.4.1 (33333)**. The manager checks the kernel's UAPI version, not the version number: the in-tree `v3.4.0-legacy-susfs` reports `KERNEL_SU_UAPI_VERSION` **5** (shown as `33306-5`), which matches v3.4.1. The v3.4.0 manager (UAPI 4) shows "manager version is too low". All official KernelSU Next APKs share the signing certificate in `drivers/kernelsu/Kbuild` (`KSU_NEXT_MANAGER_SIZE`/`HASH`). SUSFS is managed from userspace with the [sidex15/susfs4ksu-module](https://github.com/sidex15/susfs4ksu-module) KernelSU module.
 
 Never sync one variant onto another (merge, fast-forward or push) unless the user asks for that specific sync. Don't create extra feature or test branches unless the user asks.
 
-On 2026-09-23 a KernelSU Next/SUSFS update and Docker-in-chroot config options caused a bootloop. `main` and `gaming` were reset to `d77a27a79`, and the Docker work was dropped. Don't re-add the Docker changes unless the user asks. On 2026-10-07 the user asked for the KernelSU Next/SUSFS update again, and it was redone on `gaming` (see KernelSU + SUSFS below).
+On 2026-09-23 a KernelSU Next/SUSFS update and Docker-in-chroot config options caused a bootloop. `main` and `gaming` were reset to `d77a27a79`, and the Docker work was dropped. Don't re-add the Docker changes unless the user asks. On 2026-10-07 the user asked for the KernelSU Next/SUSFS update again, and it was redone on `gaming` (now `gaming-kernelsu-next`; see KernelSU + SUSFS below).
 
 ## Git Workflow
 
